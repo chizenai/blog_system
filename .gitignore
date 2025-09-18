@@ -1,0 +1,9 @@
+# Vue 相关
+node_modules/
+dist/
+.env*
+
+# PHP 相关
+vendor/
+.env*
+*.log
