@@ -2,11 +2,7 @@
 // api/categories.php
 
 // 设置响应头
-header("Access-Control-Allow-Origin: http://blog");
-header("Content-Type: application/json; charset=utf-8");
-header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
-header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
-
+// CORS头部已在index.php中设置，此处不再重复设置
 
 // 调试信息
 error_log("请求方法: " . $_SERVER['REQUEST_METHOD']);
@@ -212,16 +208,15 @@ if (json_last_error() !== JSON_ERROR_NONE) {
     default:
         // 请求方法不允许
         http_response_code(405);
-        header('Content-Type: application/json; charset=utf-8');
-$message = array("message" => "请求方法不允许。");
-$json_response = json_encode($message);
+        $message = array("message" => "请求方法不允许。");
+        $json_response = json_encode($message);
 
-if (json_last_error() !== JSON_ERROR_NONE) {
-    http_response_code(500);
-    echo json_encode(array("message" => "JSON 编码失败"));
-    exit;
-}
+        if (json_last_error() !== JSON_ERROR_NONE) {
+            http_response_code(500);
+            echo json_encode(array("message" => "JSON 编码失败"));
+            exit;
+        }
 
-echo $json_response;
+        echo $json_response;
         break;
 }

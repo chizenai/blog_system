@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // 创建 axios 实例
 const api = axios.create({
-  baseURL: 'http://blog/backend/api', // 修改为正确的后端路径
+  baseURL: '/backend/api', // 使用当前域名的相对路径
   headers: {
     'Content-Type': 'application/json'
   },

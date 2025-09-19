@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import CategoryList from '../components/CategoryList.vue';
+import CategoryList from '../components/categorylist.vue';
 
 export default {
   name: 'CategoriesPage',

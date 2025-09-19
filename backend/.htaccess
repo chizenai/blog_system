@@ -12,6 +12,11 @@
     RewriteEngine On
     RewriteCond %{REQUEST_METHOD} OPTIONS
     RewriteRule ^(.*)$ $1 [R=200,L]
+    
+    # 将所有请求重写到api/index.php（Windows兼容版本）
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ api/index.php?url=$1 [L,QSA]
 </IfModule>
 
 # 设置默认字符集
