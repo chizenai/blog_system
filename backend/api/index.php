@@ -2,10 +2,13 @@
 // api/index.php
 
 // 设置响应头
+// 替换原有的跨域头设置
 header("Content-Type: application/json; charset=UTF-8");
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Methods: GET, POST, PUT, DELETE");
+header("Access-Control-Allow-Origin: http://localhost:5173"); // 仅允许前端域名
+header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+header("Access-Control-Allow-Credentials: true"); // 支持凭证（与前端withCredentials对应）
+header("Access-Control-Max-Age: 86400"); // 预检请求缓存时间
 
 // 处理预检请求
 if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {

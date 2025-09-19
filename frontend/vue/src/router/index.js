@@ -30,7 +30,7 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory('/php+vue/frontend/'),
+  history: createWebHistory('/frontend/'),
   routes
 })
 
